@@ -8,13 +8,17 @@ The private source is an Interactive Brokers Activity Statement processed locall
 
 ## Expected tables
 
-### `portfolio_positions`
+### `analytics_positions`
 
-Expected concepts: symbol, quantity, market value, cost basis, unrealized P&L and portfolio weight.
+Curated position snapshot created by KNIME. Expected columns: currency, model,
+symbol, asset class, quantity, close price, market value and portfolio weight.
+Account identifiers and redundant portfolio totals are excluded.
 
-### `trade_orders`
+### `analytics_trade_orders`
 
-Expected concepts: timestamp, symbol, side, quantity, trade price, close price, proceeds, commission, basis, realized P&L, mark-to-market P&L and code.
+Curated trading activity created by KNIME. Expected columns: asset category,
+currency, symbol, execution timestamp, side, quantity, prices, proceeds,
+commission, cost basis, realized P&L, mark-to-market P&L and code.
 
 The canonical SQL names and types are defined in `sql/create_tables.sql`. Confirm them against the exported KNIME workflow before loading production data.
 
@@ -24,3 +28,4 @@ The canonical SQL names and types are defined in `sql/create_tables.sql`. Confir
 - Prefer synthetic samples when tests need data.
 - Remove notebook outputs before committing analyses run on private data.
 - Review every chart for account values, order IDs and timestamps before publishing.
+
