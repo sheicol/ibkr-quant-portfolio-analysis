@@ -1,0 +1,44 @@
+# Private broker data and database exports
+data/*
+!data/README.md
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.xlsx
+*.xls
+*.xml
+*.ofx
+*.qfx
+*.db
+*.sqlite*
+*.dump
+*.backup
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Python / notebooks
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated figures
+figures/*
+!figures/.gitkeep

@@ -62,4 +62,3 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 ## Aviso
 
 Proyecto educativo y de portafolio. No constituye asesoría financiera.
-
