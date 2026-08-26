@@ -16,8 +16,8 @@ IBKR Activity Statement (privado)
 
 ## Alcance
 
-- `portfolio_positions`: composición actual, valoración, P&L no realizado y pesos.
-- `trade_orders`: operaciones individuales, comisiones y P&L realizado.
+- `analytics_positions`: composición actual, valoración y pesos por símbolo y modelo.
+- `analytics_trade_orders`: operaciones individuales, comisiones y P&L realizado.
 - Análisis previstos: concentración, HHI, actividad de trading, rendimiento, riesgo y optimización.
 
 La auditoría exploratoria original reportó 1,189 órdenes de acciones en USD, sin valores faltantes, duplicados según la clave evaluada ni anomalías de signo. Estos resultados son contexto del proceso y deben reproducirse contra la base privada antes de usarlos como evidencia analítica.
@@ -62,3 +62,4 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 ## Aviso
 
 Proyecto educativo y de portafolio. No constituye asesoría financiera.
+
