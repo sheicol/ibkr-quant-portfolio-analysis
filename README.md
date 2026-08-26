@@ -56,7 +56,7 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 - [x] Notebooks base
 - [x] Validar el esquema contra PostgreSQL
 - [x] Completar análisis SQL de composición y concentración
-- [ ] Ejecutar análisis con datos privados locales
+- [x] Ejecutar análisis con datos privados locales
 
 ## Aviso
 
