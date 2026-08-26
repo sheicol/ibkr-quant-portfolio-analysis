@@ -27,7 +27,7 @@ La auditoría exploratoria original reportó 1,189 órdenes de acciones en USD, 
 ```text
 data/       documentación de datos; los datos reales no se versionan
 figures/    gráficos generados (sin información sensible)
-knime/      documentación y futuro workflow exportado
+knime/      documentación del ETL privado
 notebooks/  análisis numerados y reproducibles
 sql/        esquema PostgreSQL y consultas analíticas
 src/        funciones Python reutilizables
@@ -38,8 +38,7 @@ src/        funciones Python reutilizables
 1. Crea un entorno virtual e instala `requirements.txt`.
 2. Copia `.env.example` a `.env` y completa la URL de PostgreSQL localmente.
 3. Ejecuta `sql/create_tables.sql` en una base autorizada.
-4. Exporta el workflow de KNIME como `knime/ibkr_etl_workflow.knwf`.
-5. Ejecuta los notebooks en orden.
+4. Ejecuta los notebooks en orden.
 
 ```bash
 python -m venv .venv
@@ -55,7 +54,6 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 - [x] Estructura profesional del repositorio
 - [x] Esquema PostgreSQL inicial
 - [x] Notebooks base
-- [ ] Incorporar el workflow KNIME exportado por el propietario
 - [ ] Validar el esquema contra PostgreSQL
 - [ ] Ejecutar análisis con datos privados locales
 
