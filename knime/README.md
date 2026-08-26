@@ -1,10 +1,11 @@
 # KNIME ETL
 
-Place the exported workflow here as:
+The KNIME workflow is intentionally kept private and is not distributed with
+this repository. This prevents database credentials, local paths, account
+identifiers, and cached broker data from being published accidentally.
 
-`ibkr_etl_workflow.knwf`
-
-The binary workflow is not available in the referenced conversation and must be exported from KNIME by the project owner. Before committing it, verify that it does not embed:
+Any future workflow artifact must be reviewed before publication to ensure it
+does not embed:
 
 - an Activity Statement or cached row-level data;
 - account identifiers;
@@ -12,3 +13,4 @@ The binary workflow is not available in the referenced conversation and must be 
 - absolute local paths revealing private information.
 
 Documented pipeline concepts: positions and individual trade orders, column normalization, date/time conversion, sign validation, duplicate checks and portfolio-weight calculation.
+
