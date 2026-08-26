@@ -54,7 +54,7 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 - [x] Estructura profesional del repositorio
 - [x] Esquema PostgreSQL inicial
 - [x] Notebooks base
-- [ ] Validar el esquema contra PostgreSQL
+- [x] Validar el esquema contra PostgreSQL
 - [ ] Ejecutar análisis con datos privados locales
 
 ## Aviso
