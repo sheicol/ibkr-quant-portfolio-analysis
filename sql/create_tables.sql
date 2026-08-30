@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS analytics_positions (
 );
 
 CREATE TABLE IF NOT EXISTS analytics_trade_orders (
-    asset_category TEXT NOT NULL,
+    "Asset_category" TEXT NOT NULL,
     currency TEXT NOT NULL,
     symbol TEXT NOT NULL,
     executed_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
