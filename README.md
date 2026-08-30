@@ -58,7 +58,7 @@ Nunca se deben versionar Activity Statements, CSV exportados, identificadores de
 - [x] Completar análisis SQL de composición y concentración
 - [x] Ejecutar análisis con datos privados locales
 - [x] Completar análisis SQL de actividad de trading
-- [ ] Ejecutar notebook local de actividad de trading
+- [x] Ejecutar notebook local de actividad de trading
 
 ## Aviso
 
