@@ -16,10 +16,13 @@ Account identifiers and redundant portfolio totals are excluded.
 
 ### `analytics_trade_orders`
 
-Curated trading activity created by KNIME. Expected columns: asset category,
+Curated trading activity created by KNIME. Expected columns: `Asset_category`,
 currency, symbol, execution timestamp, quantity, prices, proceeds, commission,
 basis, realized P&L, mark-to-market P&L and code. Trade side is derived during
 analysis from the sign of quantity and is not stored in PostgreSQL.
+
+`Asset_category` retains KNIME's quoted capitalization in PostgreSQL. The
+Python notebook aliases it to the internal name `asset_category` when loading.
 
 The canonical SQL names and types are defined in `sql/create_tables.sql`. Confirm them against the exported KNIME workflow before loading production data.
 
