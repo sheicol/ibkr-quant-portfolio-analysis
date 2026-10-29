@@ -1,0 +1,5 @@
+symbol,currency,quantity,trade_price,commission_fee
+DEMO_A,USD,10,90,-1
+DEMO_B,USD,20,45,-1
+DEMO_A,USD,-5,110,-1
+DEMO_C,USD,10,95,-1

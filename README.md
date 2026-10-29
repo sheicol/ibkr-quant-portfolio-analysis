@@ -1,66 +1,53 @@
-# IBKR Quantitative Portfolio Analysis
+# IBKR Portfolio Analytics — SQL & Python
 
-Proyecto de portafolio que transforma datos de Interactive Brokers en análisis reproducibles de composición, actividad, rendimiento y riesgo.
+Pipeline analítico de Interactive Brokers con KNIME, PostgreSQL y Python: composición, concentración y actividad de trading.
 
-## Arquitectura
+**Estado:** SQL y notebooks de composición y actividad disponibles. Rendimiento, riesgo y optimización permanecen previstos; sus notebooks iniciales no son análisis terminados.
 
-```text
-IBKR Activity Statement (privado)
-        ↓
-      KNIME — ETL y controles de calidad
-        ↓
-   PostgreSQL — almacenamiento analítico
-        ↓
-      Python — análisis cuantitativo
+## Demo pública sin datos privados
+
+```bash
+python demo/run_demo.py
 ```
 
-## Alcance
+Usa exclusivamente archivos sintéticos versionados, sin red, credenciales ni PostgreSQL. Genera `demo/output/summary.json`, `report.md` y `weights.svg`. Ver [método y límites](demo/README.md).
 
-- `analytics_positions`: composición actual, valoración y pesos por símbolo y modelo.
-- `analytics_trade_orders`: operaciones individuales, comisiones y P&L realizado.
-- Análisis previstos: concentración, HHI, actividad de trading, rendimiento, riesgo y optimización.
+La demo ilustra pesos, concentración, compras/ventas y comisiones. No reconstruye una cuenta real ni estima su rentabilidad.
 
-La auditoría exploratoria original reportó 1,189 órdenes de acciones en USD, sin valores faltantes, duplicados según la clave evaluada ni anomalías de signo. Estos resultados son contexto del proceso y deben reproducirse contra la base privada antes de usarlos como evidencia analítica.
+## Pipeline del proyecto
 
-## Estructura
+IBKR Activity Statement privado → KNIME (ETL y controles) → PostgreSQL → SQL / Python.
 
-```text
-data/       documentación de datos; los datos reales no se versionan
-figures/    gráficos generados (sin información sensible)
-knime/      documentación del ETL privado
-notebooks/  análisis numerados y reproducibles
-sql/        esquema PostgreSQL y consultas analíticas
-src/        funciones Python reutilizables
-```
+| Componente | Evidencia |
+|---|---|
+| Contrato de datos | [data/README.md](data/README.md) |
+| ETL | [knime/README.md](knime/README.md); workflow privado |
+| Esquema | [create_tables.sql](sql/create_tables.sql) |
+| Composición y concentración | [SQL](sql/01_portfolio_composition.sql) · [Notebook](notebooks/01_portfolio_composition.ipynb) |
+| Actividad de trading | [SQL](sql/02_trading_activity.sql) · [Notebook](notebooks/02_trading_activity.ipynb) |
+| Rendimiento, riesgo y optimización | Plantillas; implementación pendiente |
 
-## Configuración local
+El README anterior reportó ejecuciones locales con datos privados. Esta revisión no verifica la base privada; esos resultados no se presentan como evidencia pública reproducida.
 
-1. Crea un entorno virtual e instala `requirements.txt`.
-2. Copia `.env.example` a `.env` y completa la URL de PostgreSQL localmente.
-3. Ejecuta `sql/create_tables.sql` en una base autorizada.
-4. Ejecuta los notebooks en orden.
+## Entorno completo
 
 ```bash
 python -m venv .venv
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
+
+Copiar `.env.example` a `.env`, configurar PostgreSQL local, ejecutar el esquema y cargar datos autorizados según el contrato. Ejecutar los notebooks de composición y actividad. La demo independiente no necesita estos pasos.
 
 ## Privacidad
 
-Nunca se deben versionar Activity Statements, CSV exportados, identificadores de cuenta, credenciales, archivos `.env`, backups de base de datos ni notebooks con resultados privados. Consulta [data/README.md](data/README.md) para el contrato de datos y las reglas de anonimización.
+No versionar extractos reales, credenciales, identificadores de cuenta, exportaciones privadas ni resultados sensibles de notebooks. Los datos de `demo/data/` son inventados y usan símbolos ficticios.
 
-## Estado
+## Próximos pasos
 
-- [x] Estructura profesional del repositorio
-- [x] Esquema PostgreSQL inicial
-- [x] Notebooks base
-- [x] Validar el esquema contra PostgreSQL
-- [x] Completar análisis SQL de composición y concentración
-- [x] Ejecutar análisis con datos privados locales
-- [x] Completar análisis SQL de actividad de trading
-- [x] Ejecutar notebook local de actividad de trading
+- Validar flujos de caja, moneda y convención de retornos antes de calcular rendimiento.
+- Implementar y comprobar métricas de riesgo.
+- Documentar benchmark, costos y supuestos antes de optimizar.
 
-## Aviso
+[SheyQuant Research Lab](https://github.com/sheicol/quant-research-portfolio) · [Calidad del aire](https://github.com/sheicol/analisis-calidad-aire-medellin)
 
-Proyecto educativo y de portafolio. No constituye asesoría financiera.
-
+Proyecto educativo; no constituye asesoría financiera.

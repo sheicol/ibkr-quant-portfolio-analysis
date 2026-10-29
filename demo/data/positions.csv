@@ -1,0 +1,5 @@
+symbol,currency,quantity,close_price,market_value
+DEMO_A,USD,20,100,2000
+DEMO_B,USD,30,50,1500
+DEMO_C,USD,10,100,1000
+DEMO_D,USD,10,50,500
